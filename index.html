@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chuyển Đổi File Sang PDF</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1>Chuyển Đổi File Sang PDF</h1>
-        <input type="file" id="fileInput" accept=".doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.jpg,.png" multiple />
-        <button id="convertButton">Chuyển Đổi</button>
+        <h1>Chuyển Đổi Nội Dung Sang PDF</h1>
+        <textarea id="textInput" placeholder="Nhập nội dung tại đây..." rows="5"></textarea>
+        <button id="convertButton">Chuyển Đổi và Tải Về</button>
         <p id="message"></p>
     </div>
     <script src="script.js"></script>

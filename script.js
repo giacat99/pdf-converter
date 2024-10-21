@@ -1,18 +1,21 @@
 document.getElementById('convertButton').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    const message = document.getElementById('message');
+    const { jsPDF } = window.jspdf;
 
-    if (fileInput.files.length === 0) {
-        message.innerText = 'Vui lòng chọn ít nhất một file!';
+    // Lấy nội dung từ textarea
+    const textInput = document.getElementById('textInput').value;
+
+    if (!textInput) {
+        document.getElementById('message').innerText = 'Vui lòng nhập nội dung!';
         return;
     }
 
-    message.innerText = 'Đang chuyển đổi...';
+    // Tạo file PDF
+    const doc = new jsPDF();
+    doc.text(textInput, 10, 10);
+    
+    // Tải về file PDF
+    doc.save('converted.pdf');
 
-    // Đây là nơi bạn sẽ thêm mã để chuyển đổi file
-    // Bạn cần tích hợp với một API hoặc backend để thực hiện việc này
-
-    setTimeout(() => {
-        message.innerText = 'Chuyển đổi hoàn tất!';
-    }, 2000);
+    // Hiển thị thông báo
+    document.getElementById('message').innerText = 'Đang tải về file PDF...';
 });
